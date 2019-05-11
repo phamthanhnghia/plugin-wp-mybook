@@ -7,7 +7,7 @@
  /**
 * Plugin Name: My Book
 * Plugin URI: 
-* Description: Test plugin
+* Description: Test plugin-wp-mybook
 * Version: 1.0
 * Author: phamthanhnghia
 * Author URI: https://github.com/phamthanhnghia
@@ -53,4 +53,10 @@ add_action('admin_menu', 'fr_mybook_admin_menu');
 
 function fr_mybook_page_header(){
   include(dirname(__FILE__)."\includes\index.php");
+}
+
+/* --- Enqueue plugin stylsheet --- */
+add_action( 'admin_enqueue_scripts', 'add_admin_fr_mybook_style' );
+function add_admin_fr_mybook_style() {
+  wp_enqueue_style( 'mybook', plugins_url('css/bootstrap.min.css', __FILE__));
 }
